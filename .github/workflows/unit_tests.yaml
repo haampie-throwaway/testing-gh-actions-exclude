@@ -28,4 +28,4 @@ jobs:
     steps:
     - name: Run
       run: |
-        echo ${{ matrix.event_name }} ${{ python-version }} ${{ concretizer }}
+        echo ${{ matrix.event_name }} ${{ matrix.python-version }} ${{ matrix.concretizer }}
