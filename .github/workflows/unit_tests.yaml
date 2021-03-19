@@ -15,17 +15,18 @@ jobs:
       matrix:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8, 3.9]
         concretizer: ['original', 'clingo']
-        event_name: [${{ github.event_name }}]
+        is_pr:
+        - ${{ github.event_name == 'pull_request' }}
         exclude:
-        - {event_name: pull_request, python-version: 3.5, concretizer: original}
-        - {event_name: pull_request, python-version: 3.5, concretizer: clingo}
-        - {event_name: pull_request, python-version: 3.6, concretizer: original}
-        - {event_name: pull_request, python-version: 3.6, concretizer: clingo}
-        - {event_name: pull_request, python-version: 3.7, concretizer: original}
-        - {event_name: pull_request, python-version: 3.7, concretizer: clingo}
-        - {event_name: pull_request, python-version: 3.8, concretizer: original}
-        - {event_name: pull_request, python-version: 3.8, concretizer: clingo}
+        - {is_pr: true, python-version: 3.5, concretizer: original}
+        - {is_pr: true, python-version: 3.5, concretizer: clingo}
+        - {is_pr: true, python-version: 3.6, concretizer: original}
+        - {is_pr: true, python-version: 3.6, concretizer: clingo}
+        - {is_pr: true, python-version: 3.7, concretizer: original}
+        - {is_pr: true, python-version: 3.7, concretizer: clingo}
+        - {is_pr: true, python-version: 3.8, concretizer: original}
+        - {is_pr: true, python-version: 3.8, concretizer: clingo}
     steps:
     - name: Run
       run: |
-        echo ${{ matrix.event_name }} ${{ matrix.python-version }} ${{ matrix.concretizer }}
+        echo ${{ matrix.is_pr }} ${{ matrix.python-version }} ${{ matrix.concretizer }}
