@@ -15,7 +15,7 @@ jobs:
       matrix:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8, 3.9]
         concretizer: ['original', 'clingo']
-        event_name: ${{ github.event_name }}
+        event_name: [${{ github.event_name }}]
         exclude:
         - {event_name: pull_request, python-version: 3.5, concretizer: original}
         - {event_name: pull_request, python-version: 3.5, concretizer: clingo}
