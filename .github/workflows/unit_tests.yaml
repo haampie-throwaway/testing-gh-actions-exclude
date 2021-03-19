@@ -18,14 +18,10 @@ jobs:
         is_pr:
         - ${{ github.event_name == 'pull_request' }}
         exclude:
-        - {is_pr: true, python-version: 3.5, concretizer: original}
-        - {is_pr: true, python-version: 3.5, concretizer: clingo}
-        - {is_pr: true, python-version: 3.6, concretizer: original}
-        - {is_pr: true, python-version: 3.6, concretizer: clingo}
-        - {is_pr: true, python-version: 3.7, concretizer: original}
-        - {is_pr: true, python-version: 3.7, concretizer: clingo}
-        - {is_pr: true, python-version: 3.8, concretizer: original}
-        - {is_pr: true, python-version: 3.8, concretizer: clingo}
+        - {is_pr: true, python-version: 3.5}
+        - {is_pr: true, python-version: 3.6}
+        - {is_pr: true, python-version: 3.7}
+        - {is_pr: true, python-version: 3.8}
     steps:
     - name: Run
       run: |
